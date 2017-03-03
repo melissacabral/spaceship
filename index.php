@@ -19,6 +19,12 @@
 				//example of a 'conditional tag'
 				if( is_singular() ){
 					the_content();
+					//support for paged posts
+					wp_link_pages( array(
+					'next_or_number' 	=> 'next',
+					'before'			=> '<div class="pagination">Keep Reading: ',
+					'after'				=> '</div>',					
+					) );
 				}else{
 					the_post_thumbnail('thumbnail', array('class' => 'featured-image'));
 					the_excerpt();
@@ -39,6 +45,10 @@
 		<!-- end post -->
 		<?php 
 			} //end while
+
+			//defined in functions.php
+			mmc_pagination();
+
 		} //end if 
 		?>
 

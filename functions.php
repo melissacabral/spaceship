@@ -60,6 +60,39 @@ function mmc_readmore_button(){
 }
 add_filter( 'excerpt_more', 'mmc_readmore_button' );
 
+/**
+ * Set up all the menu areas needed (two!)
+ */
+function mmc_nav_menus(){
+	register_nav_menus( array(
+		'main_menu'  	=> 'Main Navigation',
+		'social'		=> 'Social Media',
+	) );
+}
+add_action( 'init', 'mmc_nav_menus' );
 
+
+/**
+ * Helper function to handle pagination for any template
+ */
+function mmc_pagination(){
+	echo '<div class="pagination">';
+
+	if( is_singular() ){
+		//single post, page, etc.
+		previous_post_link( '%link', '&larr; %title' );
+		next_post_link(  '%link', '%title &rarr;' );
+	}
+	elseif( function_exists( 'the_posts_pagination' ) AND ! wp_is_mobile() ){
+		the_posts_pagination();
+	}
+	else{
+		//archive, blog, search, etc.		
+		previous_posts_link( '&larr; Newer Posts' );
+		next_posts_link( 'Older Posts &rarr;' );
+	}
+
+	echo '</div>';
+}
 
 //no close php

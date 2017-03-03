@@ -139,7 +139,10 @@ img {
   border-right: solid 1px gray;
   position: relative;
 }
-#header .header-bar li:hover > a {
+#header .header-bar li:hover > a,
+#header .header-bar .current-menu-item > a,
+#header .header-bar .current-menu-parent > a
+ {
   background: dodgerblue;
 }
 @media (min-width:700px) {

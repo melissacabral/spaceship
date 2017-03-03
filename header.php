@@ -22,13 +22,12 @@
 		 ?>
 
 		<h2><?php bloginfo( 'description' ); ?></h2>
-		<nav>
-			<ul class="nav">
-				<?php wp_list_pages( array(
-					'title_li'	=> '',  //hide the "pages" heading
-				) ); ?>
-			</ul>
-		</nav>
+		
+		<?php wp_nav_menu( array(
+			'theme_location' 	=> 'main_menu',
+			'menu_class' 		=> 'nav',
+			'container'			=> 'nav',
+		) ); ?>
 
 		<?php get_search_form(); ?>
 		</div>
