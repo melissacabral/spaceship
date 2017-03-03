@@ -1,0 +1,7 @@
+/*
+Don't forget add_editor_style(); in the functions file!
+*/
+body{
+	background-color: beige;
+	font-family: Calibri, sans-serif;
+}
