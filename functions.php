@@ -95,4 +95,40 @@ function mmc_pagination(){
 	echo '</div>';
 }
 
+/**
+ * Create 4 Widget Areas (Dynamic Sidebars)
+ */
+function mmc_widget_areas(){
+	register_sidebar( array(
+		'name' 			=> 'Blog Sidebar',
+		'id'			=> 'blog_sidebar',
+		'description' 	=> 'Appears on the blog posts and archive pages',
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'	=> '</section>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'	=> '</h3>',
+	) );
+
+	register_sidebar( array(
+		'name' 			=> 'Footer Widgets',
+		'id'			=> 'footer_widgets',
+		'description' 	=> 'Appears at the bottom of every page',
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'	=> '</section>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'	=> '</h3>',
+	) );
+
+	register_sidebar( array(
+		'name' 			=> 'Home Area',
+		'id'			=> 'home_area',
+		'description' 	=> 'Appears in the middle of the front page',
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'	=> '</section>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'	=> '</h3>',
+	) );
+}
+add_action( 'widgets_init', 'mmc_widget_areas' );
+
 //no close php
