@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html <?php language_attributes(); ?>>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
+	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_uri(); ?>">
 
 	<?php wp_head(); //HOOK. ?>

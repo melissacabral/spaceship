@@ -1,4 +1,7 @@
 <?php
+//required - max width of embeds for youtube, twitter, etc
+if ( ! isset( $content_width ) ) $content_width = 719;
+
 //turn on sleeping features
 add_theme_support( 'post-formats', array( 'image', 'gallery', 'audio', 'video',
 				'status', 'quote', 'aside', 'chat', 'link') );
@@ -130,5 +133,13 @@ function mmc_widget_areas(){
 	) );
 }
 add_action( 'widgets_init', 'mmc_widget_areas' );
+
+//improve UX on comment replies
+function mmc_comment_reply(){
+	if( is_singular() ){
+		wp_enqueue_script( 'comment-reply' );
+	}
+}
+add_action( 'wp_enqueue_scripts', 'mmc_comment_reply' );
 
 //no close php
