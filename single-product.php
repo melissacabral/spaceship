@@ -15,6 +15,9 @@
 				</a>
 			</h2>
 
+			<?php the_terms( $post->ID, 'brand', '<h3 class="brand">', '&nbsp;', 
+					'</h3>' ); ?>
+
 			<?php the_post_thumbnail( 'medium' ); ?>
 
 			<div class="entry-content">
@@ -39,6 +42,6 @@
 	</main>
 	<!-- end #content -->
 
-<?php get_sidebar(); // includes sidebar.php ?>
+<?php get_sidebar('shop'); // includes sidebar-shop.php ?>
 
 <?php get_footer(); //includes footer.php ?>

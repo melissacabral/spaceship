@@ -4,8 +4,11 @@
 		
 		<?php 
 		//THE LOOP.
-		if( have_posts() ){
-		 	while( have_posts() ){
+		if( have_posts() ){ ?>
+
+		<h1>Showing all products by <?php single_cat_title(); ?></h1>
+
+		 <?php	while( have_posts() ){
 		 		the_post(); 
 		 ?>
 		<article id="post-ID" <?php post_class(); ?>>
@@ -41,6 +44,6 @@
 	</main>
 	<!-- end #content -->
 
-<?php get_sidebar('shop'); // includes sidebar.php ?>
+<?php get_sidebar('shop'); // includes sidebar-shop.php ?>
 
 <?php get_footer(); //includes footer.php ?>
