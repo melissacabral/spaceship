@@ -1,5 +1,6 @@
   </div>
   <!-- end wrapper -->
+  	<a href="#header" class="to-top">Back to top</a>
 	<footer id="footer" role="contentinfo">
 		<?php dynamic_sidebar( 'Footer Widgets' ); ?>
 	</footer>

@@ -64,6 +64,15 @@ function mmc_readmore_button(){
 add_filter( 'excerpt_more', 'mmc_readmore_button' );
 
 /**
+ * Add JavaScript
+ */
+function mmc_scripts(){
+	wp_enqueue_script('jquery');
+	wp_enqueue_script( 'spaceship-js', get_stylesheet_directory_uri() . '/scripts/spaceship.js', array('jquery'), '0.1', true );
+}
+add_action( 'wp_enqueue_scripts', 'mmc_scripts' );
+
+/**
  * Set up all the menu areas needed (two!)
  */
 function mmc_nav_menus(){
@@ -142,4 +151,24 @@ function mmc_comment_reply(){
 }
 add_action( 'wp_enqueue_scripts', 'mmc_comment_reply' );
 
+/**
+ * Display the price of any product
+ */
+function the_price(){
+	global $post; //look at the post defined outside this function
+	echo '<span class="price">';
+	echo get_post_meta( $post->ID, 'Price', true );
+	echo '</span>';
+}
+
+function the_sizes(){
+	global $post;
+	echo '<span class="size">';
+										//get multiple sizes
+	$sizes =  get_post_meta( $post->ID, 'Size', false );
+
+	echo implode(", ", $sizes);
+
+	echo '</span>';
+}
 //no close php

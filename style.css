@@ -47,12 +47,12 @@ img {
 #header {
   text-align: center;
   color: white;
-  background-image: url("http://lorempixel.com/output/abstract-q-c-1200-400-9.jpg");
+  background-image: url("images/default-header.jpg");
   background-size: cover;
   /* == menu */ }
   @media (min-width: 700px) {
     #header {
-      min-height: 40vh;
+      min-height: 50vh;
       text-align: left;
       border-bottom: solid 3px dodgerblue; } }
   #header h2 {
@@ -177,6 +177,9 @@ img {
     margin: 2em 0;
     line-height: 1.5;
     font-size: 1.1em; }
+    #content .hentry .wp-post-image {
+      float: right;
+      margin: 0 0 1em 1em; }
     #content .hentry .postmeta {
       background: rgba(0, 0, 0, 0.1);
       padding: 2%;
@@ -472,9 +475,38 @@ a {
       margin: 0 0 .5em 0; }
 
 .price {
-  color: dodgerblue; }
+  color: dodgerblue;
+  font-weight: bold; }
+
+.post-type-archive-product .product,
+.tax-brand .product {
+  width: 33.3%;
+  padding: 1em;
+  float: left;
+  text-align: center; }
+
+#content .product img.wp-post-image {
+  float: none;
+  margin: 0; }
+
+.single-product .wp-post-image {
+  float: right;
+  margin-left: 1em; }
+
+.featured-products .product {
+  float: left;
+  width: 14.666%;
+  margin: 1%; }
 
 /* ==wordpress core */
+.sticky .postmeta {
+  background: rgba(30, 144, 255, 0.1) !important; }
+.sticky:before {
+  content: 'Featured Post:';
+  display: block;
+  color: rgba(0, 0, 0, 0.5);
+  border-bottom: solid 1px dodgerblue; }
+
 .alignnone {
   margin: 5px 20px 20px 0; }
 
