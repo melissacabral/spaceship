@@ -197,7 +197,7 @@ img {
     float: right;
     margin-left: 1em; }
   .page-template-template-no-sidebar #content, .home.page #content {
-    width: 98%;
+    width: 100%;
     float: none;
     left: 0; }
 
@@ -212,6 +212,7 @@ img {
   float: none; }
 
 #footer {
+  position: relative;
   clear: both;
   padding: 2%;
   border-top: solid 1px rgba(0, 0, 0, 0.15); }
@@ -220,6 +221,24 @@ img {
 a {
   text-decoration: none;
   color: darkslategray; }
+
+.to-top {
+  background-color: black;
+  color: #fff;
+  position: fixed;
+  bottom: 1em;
+  right: 1em;
+  opacity: 1;
+  padding: 1em;
+  border-radius: 300px;
+  width: 1em;
+  height: 1em;
+  line-height: 1em;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  font-family: Calibri, sans-serif;
+  box-sizing: content-box; }
 
 /* ==typography */
 #content h1,

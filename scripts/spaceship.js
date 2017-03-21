@@ -1,5 +1,7 @@
 jQuery.noConflict();
 jQuery( document ).ready(function( $ ) {
+	var $topbutton = $('.to-top');
+	$topbutton.hide();
 
 	//simple parallax on header image
 	$(window).scroll(function(){
@@ -7,6 +9,11 @@ jQuery( document ).ready(function( $ ) {
 		$('#header').css({
 			"background-position-y" :   windowTop / 3
 		});
+		if ($(window).scrollTop() > 200) {
+			$topbutton.fadeIn();
+		} else {
+			$topbutton.fadeOut();
+		}
 	});
 
 	//smooth scroll
