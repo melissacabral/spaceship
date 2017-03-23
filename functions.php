@@ -171,4 +171,60 @@ function the_sizes(){
 
 	echo '</span>';
 }
+
+/**
+ * Customization API additions - custom colors, layout, etc.
+ */
+
+function mmc_customization( $wp_customize ){
+	//add a setting for the "text color"
+	$wp_customize->add_setting( 'spaceship_text_color', array( 'default' => '#000' ) );
+
+	//add the UI for the color picker
+	$wp_customize->add_control( new WP_Customize_Color_Control( 
+		$wp_customize, 'text_color', array(
+			'label' 	=> 'Body Text Color', 		//human-friendly
+			'section' 	=> 'colors',  				//this one is built-in
+			'settings' 	=> 'spaceship_text_color', 	//registered above
+		) ) );
+
+	//add a setting for link color
+	$wp_customize->add_setting('spaceship_link_color', array('default' => 'darkslategray'));
+	//add the UI for link color
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'link_color',
+		array(
+			'label' 	=> 'Link Color',
+			'section' 	=> 'colors',
+			'settings' 	=> 'spaceship_link_color',
+		) ) );
+
+	//alternative logo uploader
+	$wp_customize->add_setting('spaceship_alt_logo', array( 'default' => '' ));
+
+	//Add the logo uploader UI to the "site identity" section
+	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'alt-logo', 
+		array(
+			'label' 	=> 'Alternative Logo',
+			'section' 	=> 'title_tagline',
+			'settings' 	=> 'spaceship_alt_logo',
+		) ) );
+
+}
+add_action('customize_register', 'mmc_customization');
+
+//Apply the customized colors to the CSS
+function mmc_custom_css(){
+	?>
+	<style type="text/css">
+		body{
+			color: <?php echo get_theme_mod('spaceship_text_color'); ?>;
+		}
+		a{
+			color: <?php echo get_theme_mod('spaceship_link_color'); ?>;
+		}
+	</style>
+	<?php
+}
+add_action( 'wp_head', 'mmc_custom_css' );
+
 //no close php
